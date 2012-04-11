@@ -1,1 +1,1 @@
-Shared templates for [cloud_ide](https://github.com/yuguang/cloud_ide)
+Shared templates for [django-cloud-ide](https://github.com/yuguang/django-cloud-ide)
