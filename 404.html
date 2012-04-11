@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Page not found{% endblock %}
+
+{% block content %}
+
+<div class="blackboard">
+    <h1>The page you requested is no longer here.</h1>
+
+    <p>It seems that the pa ge you were trying to reach doesn't exist anymore, or maybe it has just moved. Please feel free to contact us if the problem persists or if you think it is a problem with {{ application }}. </p>
+
+    <script type="text/javascript">
+        var GOOG_FIXURL_LANG = 'en';
+        var GOOG_FIXURL_SITE = ajax_url;
+    </script>
+    <script type="text/javascript"
+            src="http://linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js">
+    </script>
+</div>
+
+{% endblock %}
+
+{% block resources %}
+    <link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+    {% css "css/404.css" %}
+{% endblock %}

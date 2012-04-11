@@ -1,0 +1,31 @@
+<script id="blank" type="text/html"></script>
+
+<script id="formTemplate" type="text/html">
+    <span id="title_msg"></span>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="line-height">
+            <p data-bind="fadeText: formMessage"></p>
+        </div>
+        <button data-bind='jqueryui: { widget: "button", options: {
+        icons: {
+            primary: "ui-icon-triangle-1-e"
+        },
+        label: newFiddle() ? "Save" : "Update"
+    } }, visible: isOwner' type="submit">
+        </button>
+    </form>
+</script>
+
+<script id="revisionsTemplate" type="text/html">
+    <div id="revisionsMenu" data-bind="visible: revisionsMenu.revisions().length > 0, hoverVisible: '.line-height'">
+        <select class="left" data-bind="options: revisionsMenu.revisions, value: revisionsMenu.selectedRevision, optionsCaption: revisionsMenu.diffEnabled ? 'Select revision...' : 'Revert to...'"></select>
+        <div data-bind="visible: revisionsMenu.revisions().length > 1">
+            <select class="left" data-bind="options: revisionsMenu.revisions, value: revisionsMenu.selectedDiffRevision, optionsCaption: 'and compare with', visible: revisionsMenu.diffEnabled"></select>
+            <div class="line-height">
+                <input id="enableDiff" type="checkbox" data-bind="checked: revisionsMenu.diffEnabled" /><label for="enableDiff">Compare revisions</label>
+            </div>
+        </div>
+    </div>
+</script>

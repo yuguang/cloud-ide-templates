@@ -1,0 +1,11 @@
+{% extends "base_snippet.html" %}
+
+{% block title %}All fiddles{% endblock %}
+
+{% block description %}All public code snippets submitted and shared on {{ application }}.{% endblock %}
+
+{% block content_header %}All fiddles{% endblock %}
+
+{% block sidebar %}
+    <p>{{ hits }} fiddle{{ hits|pluralize }} posted so far.</p>
+{% endblock %}

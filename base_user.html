@@ -1,0 +1,11 @@
+{% extends "base_snippet.html" %}
+
+{% block body_tag %}account{% endblock %}
+
+{% block secondary_nav %}
+{% if request.user.is_authenticated %}
+  <li><a href="/users/{{ user.username }}/">Your fiddles</a></li>
+  <li><a href="/fiddles/">All fiddles</a></li>
+{% endif %}
+<li><a href="/">Add a fiddle</a></li>
+{% endblock %}

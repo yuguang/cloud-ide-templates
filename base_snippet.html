@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<ul id="nav-secondary">
+    {% block secondary_nav %}
+        <li><a href="{% url fiddle_top_tags %}">By tag</a></li>
+    {% endblock %}
+</ul>
+
+<h2>{% block content_header %}{% endblock %}</h2>
+
+<div id="content">
+    <div id="main">
+    {% block list_content %}
+      {% if object_list %}
+        <ul class="snippet_list">
+        {% for snippet in object_list %}
+          <li>
+            <a href="{% include 'snippet_url.html' %}">{{ snippet.title }}</a> by <a href="/users/{{ snippet.author.username }}/">{{ snippet.author.username }}</a>
+            <p class="details">{{ snippet.last_modified|timesince }} ago</p>
+          </li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+      <p class="pagination">
+      {% if has_previous %}
+        <a href="?page={{ previous }}">&lt; Previous {{ results_per_page }}</a>
+      {% endif %}
+      &nbsp;&nbsp;
+      {% if has_next %}
+        <a href="?page={{ next }}">Next {{ results_per_page }} &gt;</a>
+      {% endif %}
+      </p>
+    {% endblock %}
+    </div>
+    <div id="sidebar">     
+        <div id="cse" style="width: 100%;">Loading</div>
+        <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+        <script type="text/javascript"> 
+          google.load('search', '1', {language : 'en'});
+          google.setOnLoadCallback(function() {
+            var customSearchControl = new google.search.CustomSearchControl('001890374624298101749:vgz9z7-mrsu');
+            customSearchControl.setResultSetSize(google.search.Search.SMALL_RESULTSET);
+            customSearchControl.draw('cse');
+          }, true);
+        </script>
+        <link rel="stylesheet" href="http://www.google.com/cse/style/look/default.css" type="text/css" />   
+        {% block sidebar %}{% endblock %}
+    </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+    {% css "css/boilerplate.css" %}
+    {% css "css/snippets.css" %}
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+  <ul class="thumbs">
+    <li>
+        <div>Twitter
+        </div>
+        <a rel="nofollow" href="{% url socialauth_begin 'twitter' %}"><img src="{% media_url %}/images/twitter_icon.png" /></a>
+    </li>
+    <li>
+        <div>Google
+        </div>
+        <a rel="nofollow" href="{% url socialauth_begin 'google-oauth' %}"><img src="{% media_url %}/images/gmail_icon.png" /></a>
+    </li>
+    <li>
+        <div>Facebook
+        </div>
+        <a rel="nofollow" href="{% url socialauth_begin 'facebook' %}"><img src="{% media_url %}/images/facebook_icon.png" /></a>
+    </li>
+  </ul>
+</div>
+{% endblock %}
+
+{% block resources %}
+    {% css "css/login.css" %}
+{% endblock %}

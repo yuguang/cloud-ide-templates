@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{{ flatpage.title }}{% endblock %}
+
+{% block body_tag %}id="faq"{% endblock %}
+
+{% block content %}
+    {{ flatpage.content|safe }}
+{% endblock %}
+
+{% block resources %}
+    {% css "css/styles.python.css" %}
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    {% js "js/navigation.js" %}
+{% endblock %}

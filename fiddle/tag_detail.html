@@ -1,0 +1,11 @@
+{% extends "fiddle/snippet_list.html" %}
+
+{% block title %}Tag "{{ tag.name }}"{% if months %}, last {{ months }} months{% endif %}{% endblock %}
+
+{% block description %}All public code snippets on {{ application }} tagged by {{ tag.name }}.{% endblock %}
+
+{% block content_header %}Tag "{{ tag.name }}"{% if months %}, last {{ months }} months{% endif %}{% endblock %}
+
+{% block sidebar %}
+<p>{{ hits }} fiddle{{ hits|pluralize }} {% ifequal hits 1 %}is{% else %}are{% endifequal %} tagged with "{{ tag.name }}"</p>
+{% endblock %}
