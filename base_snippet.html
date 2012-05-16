@@ -17,7 +17,7 @@
         <ul class="snippet_list">
         {% for snippet in object_list %}
           <li>
-            <a href="{% include 'snippet_url.html' %}">{{ snippet.title }}</a> by <a href="/users/{{ snippet.author.username }}/">{{ snippet.author.username }}</a>
+            <a href="{{ snippet.get_absolute_url }}">{{ snippet.title }}</a> by <a href="/users/{{ snippet.author.username }}/">{{ snippet.author.username }}</a>
             <p class="details">{{ snippet.last_modified|timesince }} ago</p>
           </li>
         {% endfor %}
