@@ -1,7 +1,7 @@
 <script id="blank" type="text/html"></script>
 
 <script id="formTemplate" type="text/html">
-    <p id="title_msg"></p>
+    <p id="titleMessage"><img data-bind="attr: { src: titleMessage.icon }" /><span data-bind="text: titleMessage.text"></span></p>
     <form action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}
