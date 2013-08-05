@@ -4,6 +4,8 @@
 
 <ul id="nav-secondary">
     {% block secondary_nav %}
+        <li><a href="{% url fiddle_top_authors %}">By author</a></li>
+        <li><a href="{% url fiddle_top_languages %}">By language</a></li>
         <li><a href="{% url fiddle_top_tags %}">By tag</a></li>
     {% endblock %}
 </ul>
