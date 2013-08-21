@@ -1,22 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
+<p>
+    Do you already have an account on one of these sites? Click the icon to
+
+    <i>log in</i> with it here:
+
+</p>
 <div>
   <ul class="thumbs">
     <li>
-        <div>Twitter
-        </div>
-        <a rel="nofollow" href="{% url socialauth_begin 'twitter' %}"><img src="{% media_url %}/images/twitter_icon.png" /></a>
+        <a rel="nofollow" href="{% url socialauth_begin 'twitter' %}"><img title="log in with Twitter" src="{% media_url %}/images/twitter_icon.png" /></a>
     </li>
     <li>
-        <div>Google
-        </div>
-        <a rel="nofollow" href="{% url socialauth_begin 'google-oauth' %}"><img src="{% media_url %}/images/gmail_icon.png" /></a>
+        <a rel="nofollow" href="{% url socialauth_begin 'google-oauth2' %}"><img title="log in with Google Oauth2" src="{% media_url %}/images/google_icon.png" /></a>
     </li>
     <li>
-        <div>Facebook
-        </div>
-        <a rel="nofollow" href="{% url socialauth_begin 'facebook' %}"><img src="{% media_url %}/images/facebook_icon.png" /></a>
+        <a rel="nofollow" href="{% url socialauth_begin 'facebook' %}"><img title="log in with Facebook" src="{% media_url %}/images/facebook_icon.png" /></a>
+    </li>
+    <li>
+        <a rel="nofollow" href="{% url socialauth_begin 'google-oauth' %}"><img title="log in with Google Oauth" src="{% media_url %}/images/gmail_icon.png" /></a>
     </li>
   </ul>
 </div>
