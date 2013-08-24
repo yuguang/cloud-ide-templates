@@ -8,4 +8,7 @@
   <li><a href="/fiddles/">All fiddles</a></li>
 {% endif %}
 <li><a href="/">Add a fiddle</a></li>
+{% if request.user.is_authenticated %}
+  <li><a href="/logout/">Log out</a></li>
+{% endif %}
 {% endblock %}
