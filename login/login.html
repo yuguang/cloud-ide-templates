@@ -2,10 +2,13 @@
 
 {% block content %}
 <p>
-    Do you already have an account on one of these sites? Click the icon to
+    {% if error %}
+        An error occurred during authentication. Try another login service:
+    {% else %}
+        Do you already have an account on one of these sites? Click the icon to
 
-    <i>log in</i> with it here:
-
+        <i>log in</i> with it here:
+    {% endif %}
 </p>
 <div>
   <ul class="thumbs">
