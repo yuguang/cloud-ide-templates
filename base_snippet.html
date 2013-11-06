@@ -40,15 +40,6 @@
     </div>
     <div id="sidebar">
         <div id="cse" style="width: 100%;">Loading</div>
-        <script src="http://www.google.com/jsapi" type="text/javascript"></script>
-        <script type="text/javascript">
-          google.load('search', '1', {language : 'en'});
-          google.setOnLoadCallback(function() {
-            var customSearchControl = new google.search.CustomSearchControl('{{ searchid }}');
-            customSearchControl.setResultSetSize(google.search.Search.SMALL_RESULTSET);
-            customSearchControl.draw('cse');
-          }, true);
-        </script>
         {% block sidebar %}{% endblock %}
     </div>
 </div>
@@ -58,4 +49,14 @@
     {% css "css/boilerplate.css" %}
     {% css "css/snippets.css" %}
     <link rel="stylesheet" href="http://www.google.com/cse/style/look/default.css" type="text/css" />
+    <!--Google's scripts fetches stylesheets-->
+    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript">
+      google.load('search', '1', {language : 'en'});
+      google.setOnLoadCallback(function() {
+        var customSearchControl = new google.search.CustomSearchControl('{{ searchid }}');
+        customSearchControl.setResultSetSize(google.search.Search.SMALL_RESULTSET);
+        customSearchControl.draw('cse');
+      }, true);
+    </script>
 {% endblock %}
